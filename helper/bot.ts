@@ -6,7 +6,7 @@ export class Bot {
   private _channels: (string | number)[] = [];
   private _instance: Grammy;
 
-  constructor(token: string = env["TOKEN"], channel: string = "") {
+  constructor(token: string | undefined = Deno.env.get("TOKEN"), channel: string = "") {
     if (!token) {
       throw new Error("No token provided");
     } else {
